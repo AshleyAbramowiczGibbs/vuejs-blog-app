@@ -12,6 +12,9 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="/#/newpost">New Post</a>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/signup">Signup</router-link>
           </li>
           <li class="nav-item">
