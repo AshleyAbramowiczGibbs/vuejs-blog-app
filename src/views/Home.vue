@@ -11,7 +11,7 @@
 
             </div>
               <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button v-on:click="setCurrentPost(post)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Show Entire blog post
 </button>
 
@@ -26,7 +26,7 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        {{ currentPost.body }}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -43,13 +43,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">{{ currentPost.title}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        {{ currentPost.body }}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -71,6 +71,7 @@ export default {
       return {
         message: "Welcome to Vue.js!",
         posts: [],
+        currentPost: {},
         title: "",
         body: ""
       };
@@ -83,7 +84,11 @@ export default {
         }.bind(this)
       );
     },
-    methods: {},
+    methods: {
+      setCurrentPost: function(inputPost) {
+        this.currentPost = inputPost;
+      }
+    },
     computed: {}
 };
 </script>
